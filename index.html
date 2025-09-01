@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Landing Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="bg-gray-950 text-gray-100 transition duration-500">
+
+  <!-- Scroll Progress -->
+  <div id="progressBar"></div>
+
+  <!-- Header -->
+  <header class="fixed w-full z-50 glass shadow-lg">
+    <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-2xl font-bold text-indigo-400 glow">YoungDev</h1>
+      <nav class="hidden md:flex space-x-8 font-medium">
+        <a href="#home" class="hover:text-indigo-400">Home</a>
+        <a href="#features" class="hover:text-indigo-400">Features</a>
+        <a href="#pricing" class="hover:text-indigo-400">Pricing</a>
+        <a href="#testimonials" class="hover:text-indigo-400">Testimonials</a>
+        <a href="#contact" class="hover:text-indigo-400">Contact</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <button id="theme-toggle" class="p-2 rounded-full bg-indigo-600 hover:bg-indigo-700">🌙</button>
+        <button id="menu-btn" class="md:hidden text-3xl">☰</button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden flex-col space-y-4 px-6 pb-4 glass">
+      <a href="#home">Home</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- Discover Features Popup -->
+  <div id="explorePopup" class="popup">
+    <h3 class="text-2xl font-bold text-indigo-400 glow mb-4">Discover Amazing Features! ✨</h3>
+    <p class="mb-6">Dive into a world of innovation with these unique highlights:</p>
+    <ul class="space-y-2 mb-6 text-left">
+      <li>🌟 <strong>AI-Powered Customization:</strong> Personalize your site with smart suggestions that evolve with your needs.</li>
+      <li>🚀 <strong>Seamless AR Integration:</strong> Preview designs in augmented reality for an immersive experience.</li>
+      <li>🎉 <strong>Dynamic Storytelling Mode:</strong> Turn your content into interactive narratives that captivate visitors.</li>
+      <li>🔮 <strong>Predictive Analytics Dashboard:</strong> Gain insights on user behavior before it happens.</li>
+    </ul>
+    <img  src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=300&h=200&fit=crop" alt="Cosmic Nebula" class="rounded-lg mb-4 size-36 object-cover">
+     <button id="closePopup" class="neon-btn bg-pink-600 text-white px-6 py-2 rounded-lg hover:bg-pink-700">Hey</button>
+  </div>
+
+  <!-- Pricing Popup -->
+  <div id="pricingPopup" class="pricing-popup">
+    <div class="text-center mb-4">
+      <i id="pricingPopupIcon" class="pricing-icon"></i>
+    </div>
+    <h3 id="pricingPopupTitle" class="text-2xl font-bold text-white glow mb-4"></h3>
+    <p class="mb-6 text-gray-200">Embark on your cosmic journey with this plan! Ready to unlock a universe of possibilities?</p>
+    <button id="proceedToContact" class="neon-btn bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700">Get Started Now</button>
+    <button id="closePricingPopup" class="mt-4 text-gray-300 hover:text-white">Close</button>
+  </div>
+
+  <!-- Hero -->
+  <section id="home" class="pt-40 pb-32 animated-bg relative overflow-hidden">
+    <canvas id="particles" class="absolute inset-0"></canvas>
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 items-center gap-12 relative z-10">
+      <div class="text-left" data-aos="fade-right">
+        <h2 class="text-5xl md:text-7xl font-extrabold mb-6 glow">
+          <span id="typing"></span>
+        </h2>
+        <p id="typingPara" class="text-lg md:text-2xl mb-10 hidden"></p>
+        <a href="#features" id="exploreBtn" class="neon-btn inline-block bg-white text-indigo-600 px-10 py-4 rounded-full font-bold shadow-lg hover:scale-105 transition">
+          Discover Features
+        </a>
+      </div>
+      <div class="flex justify-center relative" data-aos="fade-left">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop" alt="Slide 1" class="slider-img active rounded-2xl shadow-2xl" />
+        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800&h=600&fit=crop" alt="Slide 2" class="slider-img rounded-2xl shadow-2xl" />
+        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop" alt="Slide 3" class="slider-img rounded-2xl shadow-2xl" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-24 max-w-7xl mx-auto px-6 relative">
+    <h2 class="text-4xl font-bold text-center mb-16 glow">🌟 Magical Innovations Await</h2>
+    <div class="grid md:grid-cols-3 gap-12 relative">
+      <div class="glass p-10 rounded-2xl shadow-2xl text-center feature-card" data-aos="fade-up">
+        <div class="text-5xl mb-4">🦋</div>
+        <h3 class="text-2xl font-semibold mb-4">Dreamlike Designs</h3>
+        <p>Transform your site with AI-crafted visuals that adapt to your brand’s essence.</p>
+      </div>
+      <div class="glass p-10 rounded-2xl shadow-2xl text-center feature-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="text-5xl mb-4">✨</div>
+        <h3 class="text-2xl font-semibold mb-4">Spellbinding Interactions</h3>
+        <p>Gesture-based animations that create a magical, immersive user journey.</p>
+      </div>
+      <div class="glass p-10 rounded-2xl shadow-2xl text-center feature-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="text-5xl mb-4">🌍</div>
+        <h3 class="text-2xl font-semibold mb-4">Global Connections</h3>
+        <p>Integrate with global platforms to build vibrant, connected communities.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-24 bg-gray-900 relative">
+    <h2 class="text-4xl font-bold text-center mb-10 glow">🌌 Unlock Your Cosmic Journey</h2>
+    <div class="flex justify-center mb-16">
+      <label class="flex items-center cursor-pointer space-x-3">
+        <span>Monthly</span>
+        <input type="checkbox" id="togglePricing" class="hidden">
+        <div class="w-14 h-7 bg-gray-600 rounded-full relative">
+          <div id="toggleDot" class="dot w-6 h-6 bg-white rounded-full absolute top-0.5 left-0.5 transition"></div>
+        </div>
+        <span>Yearly <span class="text-pink-400">(Save 25%)</span></span>
+      </label>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto px-6">
+      <div class="glass p-10 rounded-2xl shadow-lg hover:scale-105 transition relative">
+        <h3 class="text-2xl font-semibold mb-4">Sparkle Starter</h3>
+        <p class="price text-5xl font-bold mb-6" data-monthly="15" data-yearly="135">$15</p>
+        <ul class="mb-6 space-y-2">
+          <li>✔ Essential Magic Tools</li>
+          <li>✔ Community Forum Access</li>
+          <li>✔ Basic Enchantments</li>
+        </ul>
+        <button class="choose-btn bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700" data-plan="Sparkle Starter" data-icon="fas fa-star">Embark Now</button>
+      </div>
+      <div class="glass p-10 rounded-2xl shadow-lg border-2 border-pink-500 hover:scale-110 transition relative">
+        <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-pink-600 text-white px-4 py-1 rounded-full text-sm font-bold shadow">Stellar Choice</div>
+        <h3 class="text-2xl font-semibold mb-4">Galactic Pro</h3>
+        <p class="price text-5xl font-bold mb-6" data-monthly="39" data-yearly="351">$39</p>
+        <ul class="mb-6 space-y-2">
+          <li>✔ Advanced Wizardry Features</li>
+          <li>✔ VIP Support Portal</li>
+          <li>✔ Exclusive Cosmic Themes</li>
+        </ul>
+        <button class="choose-btn bg-pink-600 text-white px-6 py-3 rounded-lg hover:bg-pink-700" data-plan="Galactic Pro" data-icon="fas fa-rocket">Launch Adventure</button>
+      </div>
+      <div class="glass p-10 rounded-2xl shadow-lg hover:scale-105 transition relative">
+        <h3 class="text-2xl font-semibold mb-4">Infinite Enterprise</h3>
+        <p class="price text-5xl font-bold mb-6" data-monthly="79" data-yearly="711">$79</p>
+        <ul class="mb-6 space-y-2">
+          <li>✔ Unlimited Galactic Powers</li>
+          <li>✔ Dedicated Star Guide Support</li>
+          <li>✔ Custom Universe Building</li>
+        </ul>
+        <button class="choose-btn bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700" data-plan="Infinite Enterprise" data-icon="fas fa-globe">Conquer the Stars</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-24 max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-16 glow animated-heading">💬 Voices from the Cosmos</h2>
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="glass p-8 rounded-2xl shadow-lg" data-aos="fade-up">
+        <p class="italic mb-4">"This landing page is out of this world! The design is futuristic and seamless."</p>
+        <h4 class="font-bold text-indigo-400">— Sarah L.</h4>
+      </div>
+      <div class="glass p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
+        <p class="italic mb-4">"The animations are pure magic! It’s like my site came to life."</p>
+        <h4 class="font-bold text-pink-400">— James K.</h4>
+      </div>
+      <div class="glass p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="400">
+        <p class="italic mb-4">"A truly enchanting experience. This design is next-level!"</p>
+        <h4 class="font-bold text-yellow-400">— Alex R.</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24 max-w-3xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-12 glow">📩 Connect with the Stars</h2>
+    <div class="glass p-10 rounded-2xl shadow-lg">
+      <form id="contactForm" class="space-y-6">
+        <div class="relative">
+          <input type="text" id="name" placeholder="Your Name" class="w-full p-4 rounded-lg dark:bg-gray-800 border pl-10" required />
+          <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+        </div>
+        <div class="relative">
+          <input type="email" id="email" placeholder="Your Email" class="w-full p-4 rounded-lg dark:bg-gray-800 border pl-10" required />
+          <i class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+        </div>
+        <div class="relative">
+          <input type="text" id="subject" placeholder="Subject" class="w-full p-4 rounded-lg dark:bg-gray-800 border pl-10" required />
+          <i class="fas fa-tag absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+        </div>
+        <div class="relative">
+          <textarea id="message" rows="4" placeholder="Your Message" class="w-full p-4 rounded-lg dark:bg-gray-800 border pl-10 pt-10" required></textarea>
+          <i class="fas fa-comment absolute left-3 top-4 text-gray-400"></i>
+        </div>
+        <button type="submit" class="neon-btn bg-indigo-600 text-white px-8 py-4 rounded-lg hover:bg-indigo-700 w-full">Send Cosmic Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white text-center py-6">
+    <p>&copy; Crafted with ❤️ during my YoungDev Journey.</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="./script.js"></script>
+
+</body>
+</html>
